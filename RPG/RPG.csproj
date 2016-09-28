@@ -48,6 +48,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="World\Map.cs" />
+    <Compile Include="World\MapLayer.cs" />
+    <Compile Include="World\Tile.cs" />
+    <Compile Include="World\TileSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

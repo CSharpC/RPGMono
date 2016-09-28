@@ -41,17 +41,17 @@ namespace RPG
             base.Update(gameTime);
                         
             // Movement
-            if (input.KeyHold(Keys.Down))
-                playerPosition.Y += 5.0f;
+            if (input.KeyPressed(Keys.Down))
+                playerPosition.Y += 32;
 
-            if (input.KeyHold(Keys.Right))
-                playerPosition.X += 5.0f;
+            if (input.KeyPressed(Keys.Right))
+                playerPosition.X += 32;
 
-            if (input.KeyHold(Keys.Left))
-                playerPosition.X -= 5.0f;
+            if (input.KeyPressed(Keys.Left))
+                playerPosition.X -= 32;
 
-            if (input.KeyHold(Keys.Up))
-                playerPosition.Y -= 5.0f;
+            if (input.KeyPressed(Keys.Up))
+                playerPosition.Y -= 32;
         }
 
         public override void Draw(GameTime gameTime)

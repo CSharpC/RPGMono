@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPGCore.World
+namespace RPG
 {
     public class Tile
     {
@@ -12,15 +13,17 @@ namespace RPGCore.World
         {
             Width = defaultWidth;
             Height = defaultHeight;
+            texture = Point.Zero;
         }
-        public Tile(string image)
+        public Tile(int texX, int texY)
         {
-            Image = image;
+            texture = new Point(texX, texY);
         }
 
         #region Basic Fields
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Width;
+        public int Height;
+        public Point texture = new Point();
         public string Image { get; set; }
         #endregion
         #region Static Stuff
