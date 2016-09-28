@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using RPGCore.Creatures;
 
 namespace RPG
 {
     class Player : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        SpriteBatch spriteBatch;
+        public Creature Character { get; set; }
+
         private Texture2D meme;
-
-
+        private SpriteBatch spriteBatch;
         private Vector2 playerPosition;
+        private InputHelper input;
+
         public Player(Game game) : base(game)
         {
-            
+            input = InputHelper.Current;
+            Character = new Creature("Player", 0, 10, 10, 10, 10, 10, 40, 5, 10, 2, 5, 5);
         }
 
         protected override void LoadContent()
@@ -35,19 +39,18 @@ namespace RPG
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            KeyboardState helper = Keyboard.GetState();
-            
+                        
             // Movement
-            if (helper.IsKeyDown(Keys.Down))
+            if (input.KeyHold(Keys.Down))
                 playerPosition.Y += 5.0f;
 
-            if (helper.IsKeyDown(Keys.Right))
+            if (input.KeyHold(Keys.Right))
                 playerPosition.X += 5.0f;
 
-            if (helper.IsKeyDown(Keys.Left))
+            if (input.KeyHold(Keys.Left))
                 playerPosition.X -= 5.0f;
 
-            if (helper.IsKeyDown(Keys.Up))
+            if (input.KeyHold(Keys.Up))
                 playerPosition.Y -= 5.0f;
         }
 

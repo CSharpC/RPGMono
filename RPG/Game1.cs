@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using RPGCore.Creatures;
 
 namespace RPG
 {
@@ -9,6 +10,7 @@ namespace RPG
     /// </summary>
     public class Game1 : Game
     {
+        InputHelper inputHelper;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -16,6 +18,7 @@ namespace RPG
 
         public Game1()
         {
+            inputHelper = new InputHelper();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -28,6 +31,7 @@ namespace RPG
         /// </summary>
         protected override void Initialize()
         {
+            ExperienceTable.InitializeLevelTable(50, 1.075f, 10, 99);
             player = new Player(this);
             Components.Add(player);
 
@@ -64,7 +68,7 @@ namespace RPG
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            inputHelper.Update();
             
 
             base.Update(gameTime);

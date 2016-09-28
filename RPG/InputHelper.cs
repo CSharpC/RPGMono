@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Input;
 
 public class InputHelper
 {
+    public static InputHelper Current;
+
     protected MouseState currentMouseState, previousMouseState;
     protected KeyboardState currentKeyboardState, previousKeyboardState;
     protected Vector2 scale;
@@ -10,6 +12,7 @@ public class InputHelper
     public InputHelper()
     {
         scale = Vector2.One;
+        Current = this;
     }
 
     public void Update()
