@@ -10,7 +10,7 @@ using RPGCore.Creatures;
 
 namespace RPG
 {
-    class Player : Microsoft.Xna.Framework.DrawableGameComponent
+    public class Player : Microsoft.Xna.Framework.DrawableGameComponent
     {
         public Creature Character { get; set; }
 

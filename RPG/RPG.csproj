@@ -48,6 +48,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\HealthBar.cs" />
     <Compile Include="World\Map.cs" />
     <Compile Include="World\MapLayer.cs" />
     <Compile Include="World\Tile.cs" />

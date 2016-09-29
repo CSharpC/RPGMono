@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using RPG.UI;
 using RPGCore.Creatures;
 
 namespace RPG
@@ -13,11 +14,11 @@ namespace RPG
         private static Game1 _instance;
         public static Game1 Instance { get { return _instance; } }
         public SpriteBatch spriteBatch;
+        public Player player;
         public Map CurrentMap;
         InputHelper inputHelper;
         GraphicsDeviceManager graphics;
-
-        private Player player;
+        HealthBar playerHealthBar;
 
         public Game1()
         {
@@ -48,6 +49,7 @@ namespace RPG
             groundLayer.tiles[2, 1].texture = new Point(1, 0);
 
             player = new Player(this);
+            playerHealthBar = new HealthBar(player.Character, new Rectangle(40, 20, 120, 32));
             Components.Add(player);
 
             base.Initialize();
