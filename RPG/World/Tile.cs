@@ -28,11 +28,15 @@ namespace RPG
         #endregion
         #region Static Stuff
         static int defaultWidth = 32, defaultHeight = 32;
-        public static void ChangeDefaultDimensions(int width, int height)
-        {
-            defaultWidth = width;
-            defaultHeight = height;
+        public static int DefaultWidth {
+            get { return defaultWidth; }
+            set { defaultWidth = value; }
         }
+        public static int DefaultHeight
+        {
+            get { return defaultHeight; }
+            set { defaultHeight = value; }
+        }        
         #endregion
 
     }
