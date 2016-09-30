@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using RPG.UI;
+using RPG.World;
 using RPGCore.Creatures;
 
 namespace RPG
@@ -47,6 +48,12 @@ namespace RPG
             groundLayer.tiles[2, 0].texture = new Point(1, 0);
             groundLayer.tiles[1, 1].texture = new Point(1, 0);
             groundLayer.tiles[2, 1].texture = new Point(1, 0);
+
+            //Serialization testing
+            var mapData = MapSerializer.Serialize(CurrentMap);
+            mapData = mapData.Replace("0:", "1:").Replace(":0", ":1");
+            CurrentMap = MapSerializer.Deserialize(mapData);
+
 
             player = new Player(this);
             playerHealthBar = new HealthBar(player.Character, new Rectangle(40, 20, 120, 32));

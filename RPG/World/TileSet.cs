@@ -12,7 +12,7 @@ namespace RPG
     public class TileSet
     {
         public Texture2D raw;
-        private int columns, rows, tileWidth, tileHeight;
+        public int columns, rows, tileWidth, tileHeight;
 
         ContentManager content;
         public TileSet(string file, int cols, int rows)
