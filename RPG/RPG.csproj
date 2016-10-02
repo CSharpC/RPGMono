@@ -51,6 +51,7 @@
     <Compile Include="UI\HealthBar.cs" />
     <Compile Include="World\Map.cs" />
     <Compile Include="World\MapLayer.cs" />
+    <Compile Include="World\MapSerializer.cs" />
     <Compile Include="World\Tile.cs" />
     <Compile Include="World\TileSet.cs" />
   </ItemGroup>
