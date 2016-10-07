@@ -17,8 +17,7 @@ namespace RPG
             this.width = width;
             this.height = height;
             layers = new List<MapLayer>();
-            layers.Add(new MapLayer("tileset", 2, 2, width, height));
-
+            layers.Add(new MapLayer("tileset", 2, 2, width, height));            
             Game1.Instance.Drawing += Draw;
         }
 
