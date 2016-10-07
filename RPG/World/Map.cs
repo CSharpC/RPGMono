@@ -21,6 +21,11 @@ namespace RPG
             Game1.Instance.Drawing += Draw;
         }
 
+        private void LoadMap()
+        {
+            
+        }
+
         ~Map()
         {
             Game1.Instance.Drawing -= Draw;
