@@ -43,17 +43,17 @@ namespace RPG
             float width = this.Game.GraphicsDevice.PresentationParameters.Bounds.Width;
             float height = this.Game.GraphicsDevice.PresentationParameters.Bounds.Height;
             // Movement
-            if (input.KeyPressed(Keys.Down) && playerPosition.Y < height - Tile.DefaultHeight)
-                playerPosition.Y += 32;
+            if (input.KeyPressed(Keys.Down))
+                playerPosition.Y += 2;
 
-            if (input.KeyPressed(Keys.Right) && playerPosition.X < width - Tile.DefaultWidth)
-                playerPosition.X += 32;                
+            if (input.KeyPressed(Keys.Right))
+                playerPosition.X += 2;                
 
-            if (input.KeyPressed(Keys.Left) && playerPosition.X > 0)
-                playerPosition.X -= 32;
+            if (input.KeyPressed(Keys.Left))
+                playerPosition.X -= 2;
 
-            if (input.KeyPressed(Keys.Up) && playerPosition.Y > 0)
-                playerPosition.Y -= 32;
+            if (input.KeyPressed(Keys.Up))
+                playerPosition.Y -= 2;
         }
 
         public override void Draw(GameTime gameTime)
