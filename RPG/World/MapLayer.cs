@@ -10,12 +10,14 @@ namespace RPG
     {
         public Tile[,] tiles;
         public TileSet tileSet;
+        public string tsName;
 
         public MapLayer(string tileset, int tsColumns, int tsRows, int width, int height)
         {
             tiles = new Tile[width, height];
             InitializeTiles();
             tileSet = new TileSet(tileset, tsColumns, tsRows);
+            tsName = tileset;
         }
 
         public void SetTile(int x, int y, Tile tile)

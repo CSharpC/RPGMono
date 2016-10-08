@@ -43,16 +43,16 @@ namespace RPG
             float width = this.Game.GraphicsDevice.PresentationParameters.Bounds.Width;
             float height = this.Game.GraphicsDevice.PresentationParameters.Bounds.Height;
             // Movement
-            if (input.KeyPressed(Keys.Down))
+            if (input.KeyHold(Keys.Down))
                 playerPosition.Y += 2;
 
-            if (input.KeyPressed(Keys.Right))
+            if (input.KeyHold(Keys.Right))
                 playerPosition.X += 2;                
 
-            if (input.KeyPressed(Keys.Left))
+            if (input.KeyHold(Keys.Left))
                 playerPosition.X -= 2;
 
-            if (input.KeyPressed(Keys.Up))
+            if (input.KeyHold(Keys.Up))
                 playerPosition.Y -= 2;
         }
 

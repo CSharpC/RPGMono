@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<loop from="0" to="20">
+  <action>
+    <type>"send"</type>
+    <target>"@pfthroaway"</target>
+    <message>"MAN IT'S A MARKUP LANGUAGE, DAMMIT"</message>
+  </action>
+</loop>

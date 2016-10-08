@@ -1,1 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<map>
+  <layer width="24" height="24" tileset="tileset.png" ts_rows="2" ts_cols="2">
+    <row>
+      <tile/>      
+    </row>
+  </layer>
+</map>

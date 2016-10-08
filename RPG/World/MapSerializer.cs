@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace RPG.World
@@ -11,46 +13,19 @@ namespace RPG.World
     /// </summary>
     public class MapSerializer
     {
-        /* MAP FILE SPECS:
-         * Map width height
-         * Layer tileset_filename [
-         *  x:y|x:y|x:y
-         *  x:y|x:y|x:y
-         *  x:y|x:y|x:y (x:y represents one block on the layer; x = horizontal position on the tileset; y = vertical)
-         * ]
-         * Layer ... [ ...
-         * tilewidth tileheight 
-         * 
-        */
-
+        
         #region Static Functions
         public static string Serialize(Map map)
         {
-            var mapData = new StringBuilder("Map ");
-            var width = map.width;
-            var height = map.height;
-            mapData.AppendFormat("{0} {1}", width, height);
-            foreach(var layer in map.layers)
+            FileStream fs = File.Create(@"C:\\Users\\bombo\\Documents\\generated_map.xml");
+            XmlWriter writer = XmlWriter.Create(fs);
+            writer.WriteElementString("map", "");
+            foreach (var layer in map.layers)
             {
-                mapData.AppendLine();
-                mapData.AppendFormat("Layer {0} {1} {2} [" ,layer.tileSet.raw.Name, layer.tileSet.columns, layer.tileSet.rows);
-                mapData.AppendLine();
-                for(int y = 0; y < height; y++)
-                {
-                    mapData.Append("\t");
-                    for (int x = 0; x < width; x++)
-                    {
-                        var tex = layer.tiles[x, y].texture;
-                        mapData.AppendFormat("{0}:{1}", tex.X, tex.Y);
-                        if (x < width - 1)
-                            mapData.Append("|");
-                    }
-                    mapData.AppendLine();
-                }
-                mapData.AppendLine("]");
+                
             }
-            mapData.AppendFormat("{0} {1}", 32, 32);
-            return mapData.ToString();
+            writer.Close();
+            fs.Close();
         }
 
         public static Map Deserialize(string mapData)
