@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using RPG.UI;
 using RPG.World;
+using System.Collections.Generic;
 using RPGCore.Creatures;
 
 namespace RPG
@@ -38,25 +39,11 @@ namespace RPG
         protected override void Initialize()
         {
             ExperienceTable.InitializeLevelTable(50, 1.075f, 10, 99);
-            CurrentMap = new Map(24, 24);
-            
-            // Draw the beach
-            var groundLayer = CurrentMap.layers[0];
-            groundLayer.tiles[0, 0].texture = new Point(1, 0);
-            groundLayer.tiles[0, 1].texture = new Point(1, 0);
-            groundLayer.tiles[0, 2].texture = new Point(1, 0);
-            groundLayer.tiles[1, 0].texture = new Point(1, 0);
-            groundLayer.tiles[2, 0].texture = new Point(1, 0);
-            groundLayer.tiles[1, 1].texture = new Point(1, 0);
-            groundLayer.tiles[2, 1].texture = new Point(1, 0);/*
-            CurrentMap = Map.LoadMap();
+            CurrentMap = MapSerializer.Deserialize(@"C:\\Users\\bombo\\Documents\\serialized.xml");
             //Serialization testing
             /*var mapData = MapSerializer.Serialize(CurrentMap);
             mapData = mapData.Replace("0:", "1:").Replace(":0", ":1");
-            CurrentMap = MapSerializer.Deserialize(mapData);*/
-            CurrentMap.generateRandomMap();
-            CurrentMap = Map.LoadMap();
-            Instance.Drawing += CurrentMap.Draw;
+            CurrentMap = MapSerializer.Deserialize(mapData);*/                        
             player = new Player(this);
             //playerHealthBar = new HealthBar(player.Character, new Rectangle(40, 20, 120, 32));
             Components.Add(player);
