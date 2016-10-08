@@ -39,11 +39,7 @@ namespace RPG
         protected override void Initialize()
         {
             ExperienceTable.InitializeLevelTable(50, 1.075f, 10, 99);
-            CurrentMap = MapSerializer.Deserialize(@"C:\\Users\\bombo\\Documents\\serialized.xml");
-            //Serialization testing
-            /*var mapData = MapSerializer.Serialize(CurrentMap);
-            mapData = mapData.Replace("0:", "1:").Replace(":0", ":1");
-            CurrentMap = MapSerializer.Deserialize(mapData);*/                        
+            CurrentMap = MapSerializer.Deserialize(@"C:\\Users\\bombo\\Documents\\serialized.xml"); //This path is just where I stored a map randomly generated .
             player = new Player(this);
             //playerHealthBar = new HealthBar(player.Character, new Rectangle(40, 20, 120, 32));
             Components.Add(player);
